@@ -1,11 +1,22 @@
-from astar import astar
-from simulator import run_simulation
+from grid import START, GOAL
+from simulator import render
+from astar import get_next_step
 
-start = (0,0)
-goal = (9,9)
+pos = START
 
-path = astar(start, goal)
+for step in range(100):
 
-run_simulation(path)
+    if pos == GOAL:
+        print("🎯 وصلت السيارة للهدف")
+        break
 
-print("Finished successfully")
+    next_pos = get_next_step(pos)
+
+    if next_pos is None:
+        print("❌ لا يوجد مسار")
+        break
+
+    pos = next_pos
+
+    print(f"Step {step} -> {pos}")
+    render(pos)
