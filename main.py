@@ -1,3 +1,4 @@
+print("PROGRAM STARTED")
 from grid import START, GOAL
 from simulator import render
 from astar import get_next_step
