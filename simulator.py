@@ -1,6 +1,16 @@
-import time
+from grid import grid, GOAL
 
-def run_simulation(path):
-    for step, pos in enumerate(path):
-        print(f"Step {step}: Car at {pos}")
-        time.sleep(0.2)
+def render(car_pos):
+    for i in range(10):
+        row = ""
+        for j in range(10):
+            if (i, j) == car_pos:
+                row += "🚗 "
+            elif (i, j) == GOAL:
+                row += "🏁 "
+            elif grid[i][j] == 1:
+                row += "🟫 "
+            else:
+                row += "⬜ "
+        print(row)
+    print()
